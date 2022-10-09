@@ -1,6 +1,6 @@
 # ocilogs-for-fluent-bit
 
-Fluent Bit Plugin for Oracle Cloud Logs
+Fluent Bit Plugin for Oracle Cloud Infrasrtucture Logs
 
 ## Usage
 
@@ -35,16 +35,8 @@ plugins.conf
 
 ## Installation
 
-UNIX
-
 ```
 $ make
-```
-
-Windows
-
-```
-$ make windows-release
 ```
 
 ## License
