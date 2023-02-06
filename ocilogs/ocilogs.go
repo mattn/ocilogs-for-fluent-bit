@@ -78,7 +78,15 @@ func NewOutputPlugin(config OutputPluginConfig) (*OutputPlugin, error) {
 func (output *OutputPlugin) AddEvent(e *Event) int {
 	m := map[string]interface{}{}
 	for k, v := range e.Record {
-		m[fmt.Sprint(k)] = v
+		ks := fmt.Sprint(k)
+		vv := v
+		if b, ok := k.([]byte); ok {
+			ks = string(b)
+		}
+		if b, ok := v.([]byte); ok {
+			vv = string(b)
+		}
+		m[ks] = vv
 	}
 	var buf bytes.Buffer
 	err := json.NewEncoder(&buf).Encode(m)
